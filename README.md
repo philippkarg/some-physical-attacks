@@ -1,5 +1,16 @@
 # Some Physical Attacks
 
+- [Some Physical Attacks](#some-physical-attacks)
+  - [Introduction](#introduction)
+  - [Preconditions](#preconditions)
+  - [Timing Attack on RSA](#timing-attack-on-rsa)
+    - [Introduction \& Idea](#introduction--idea)
+    - [Attack Principle](#attack-principle)
+    - [How to run the attack](#how-to-run-the-attack)
+  - [Differential Power Analysis on AES](#differential-power-analysis-on-aes)
+    - [Introduction \& Idea](#introduction--idea-1)
+    - [Attack Principle](#attack-principle-1)
+
 ## Introduction
 This repository contains some very simple, rather theoretical physical attacks, including a *Timing Attack* on RSA, *Differential Power Analysis* on AES and *Differential Fault Attack* also on AES. The attacks are implemented in Python and the code is well documented. The attacks are not optimized for speed, but are just my first attempts at implementing attacks like this. The attacks are not meant to be used in real life, but rather to illustrate the principles of the attacks, e.g. the timing attack on RSA only recovers 64b of the key (which is normally 1024b-4096b).
 
@@ -43,3 +54,10 @@ The attack works as follows:
 You can run all of the attacks easily from one script.
 1. Make sure you install the required libraries by running `pip install -r requirements.txt`.
 2. Run the attack by executing: `python3 attacks.py dta`.
+
+## Differential Power Analysis on AES
+### Introduction & Idea
+Differential Power Analysis (DPA) is a side channel attack usually used on cryptographic algorithms. It works by measuring the power consumption of the algorithm and correlating this power consumption with intermediate values calculated during the computation. With this correlation secret information can be extracted. In principle, the attack works on any algorithm, without specific knowledge of the algorithm. However, the number of required traces can be greatly decreased by cleverly using knowledge about the attacked algorithm. In this example, we will attack an AES algorithm in the last round, to extract the last round key, which can be used to calculate the AES master key.
+
+### Attack Principle
+For each byte of the last round key do the following:
