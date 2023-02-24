@@ -1,15 +1,14 @@
 # Some Physical Attacks
 
-- [Some Physical Attacks](#some-physical-attacks)
-  - [Introduction](#introduction)
-  - [Preconditions](#preconditions)
-  - [Timing Attack on RSA](#timing-attack-on-rsa)
-    - [Introduction \& Idea](#introduction--idea)
-    - [Attack Principle](#attack-principle)
-    - [How to run the attack](#how-to-run-the-attack)
-  - [Differential Power Analysis on AES](#differential-power-analysis-on-aes)
-    - [Introduction \& Idea](#introduction--idea-1)
-    - [Attack Principle](#attack-principle-1)
+- [Introduction](#introduction)
+- [Preconditions](#preconditions)
+- [Timing Attack on RSA](#timing-attack-on-rsa)
+  - [Introduction \& Idea](#introduction--idea)
+  - [Attack Principle](#attack-principle)
+  - [How to run the attack](#how-to-run-the-attack)
+- [Differential Power Analysis on AES](#differential-power-analysis-on-aes)
+  - [Introduction \& Idea](#introduction--idea-1)
+  - [Attack Principle](#attack-principle-1)
 
 ## Introduction
 This repository contains some very simple, rather theoretical physical attacks, including a *Timing Attack* on RSA, *Differential Power Analysis* on AES and *Differential Fault Attack* also on AES. The attacks are implemented in Python and the code is well documented. The attacks are not optimized for speed, but are just my first attempts at implementing attacks like this. The attacks are not meant to be used in real life, but rather to illustrate the principles of the attacks, e.g. the timing attack on RSA only recovers 64b of the key (which is normally 1024b-4096b).
