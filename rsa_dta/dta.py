@@ -66,7 +66,6 @@ class DTA:
         Returns: f=a*b and er=1 if reduction is done, er=0 otherwise
         """
 
-        # ... WRITE YOUR CODE HERE ...
         er = 0
         # Create a mask to get the lower n bits
         # In our case the mask is 0xFFFFFFFFFFFFFFFF
