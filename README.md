@@ -88,4 +88,25 @@ v_{11} & \dots  & v_{1K} \\
 v_{D1} & \dots & v_{DK} 
 \end{bmatrix}
 ```
+3. From this *V-Matrix* we compute the *H-Matrix* which contain the power model values for all of our key hypotheses & inputs. There are a number of possibilities for power models, in this attack I used the *Hamming-Weight* model, which simply counts the nubmers of `1`s in a data word. For example: `hw(0x12) = hw(0b0001 0010) = 2`. The *H-Matrix* has the same dimensions as the *V-Matrix*:
 
+```math
+H = \begin{bmatrix} 
+h_{11} & \dots  & h_{1K} \\
+\vdots & \ddots & \vdots \\
+h_{D1} & \dots & h_{DK} 
+\end{bmatrix}
+```
+4. Finally, we use a correlation function to correlate our *H-Matrix* with the power traces in the trace-matrix *T*. This leads to the *R-Matrix*.
+5. The absolute maximum value now lies at the index for the correct key byte.
+
+### How to run the attack
+You can run all of the attacks easily from one script.
+1. Make sure you install the required libraries by running `pip install -r requirements.txt`.
+2. Run the attack by executing: `python3 attacks.py dpa`.
+
+## Differential Fault Attack on AES
+### Introduction & Idea
+*Fault Attacks* are fundamentally different from the 2 attacks above, both of which are *Side-Channel Attacks*. Side-Channel Attacks measure attributes of an attacked system, while Fault Attacks directly inject a fault. This can be done in various ways, e.g. by temporarily spiking the supply voltage of the device, or by using a focues Laser beam to change certain bytes.
+
+In this implementation, we again use a simplified way of implementing a Fault attack. The faulty-ciphertext pairs are generated with a program & not actually on hardware. By doing this, we can exactly define where to inject the fault, which is quite complicated in real life.
