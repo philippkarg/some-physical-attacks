@@ -9,6 +9,11 @@
 - [Differential Power Analysis on AES](#differential-power-analysis-on-aes)
   - [Introduction \& Idea](#introduction--idea-1)
   - [Attack Principle](#attack-principle-1)
+  - [How to run the attack](#how-to-run-the-attack-1)
+- [Differential Fault Attack on AES](#differential-fault-attack-on-aes)
+  - [Introduction \& Idea](#introduction--idea-2)
+  - [Attack Principle](#attack-principle-2)
+  - [How to run the attack](#how-to-run-the-attack-2)
 
 ## Introduction
 This repository contains some very simple, rather theoretical physical attacks, including a *Timing Attack* on RSA, *Differential Power Analysis* on AES and *Differential Fault Attack* also on AES. The attacks are implemented in Python and the code is well documented. The attacks are not optimized for speed, but are just my first attempts at implementing attacks like this. The attacks are not meant to be used in real life, but rather to illustrate the principles of the attacks, e.g. the timing attack on RSA only recovers 64b of the key (which is normally 1024b-4096b).
@@ -110,3 +115,10 @@ You can run all of the attacks easily from one script.
 *Fault Attacks* are fundamentally different from the 2 attacks above, both of which are *Side-Channel Attacks*. Side-Channel Attacks measure attributes of an attacked system, while Fault Attacks directly inject a fault. This can be done in various ways, e.g. by temporarily spiking the supply voltage of the device, or by using a focues Laser beam to change certain bytes.
 
 In this implementation, we again use a simplified way of implementing a Fault attack. The faulty-ciphertext pairs are generated with a program & not actually on hardware. By doing this, we can exactly define where to inject the fault, which is quite complicated in real life.
+
+### Attack Principle
+
+### How to run the attack
+You can run all of the attacks easily from one script.
+1. Make sure you install the required libraries by running `pip install -r requirements.txt`.
+2. Run the attack by executing: `python3 attacks.py dfa`.
