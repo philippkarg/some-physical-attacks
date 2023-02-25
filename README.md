@@ -60,3 +60,36 @@ Differential Power Analysis (DPA) is a side channel attack usually used on crypt
 
 ### Attack Principle
 For each byte of the last round key do the following:
+1. Create a list of all 256 possible values for the byte.
+2. Create the *V-Matrix* by calculating the inverse Sub-Bytes transformation for all key hypotheses & each column of our ciphertext:
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    $K = \begin{bmatrix} 
+    k_{1} & \dots  & k_{K} \\
+    \end{bmatrix}
+    \qquad$
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;
+    &darr;
+
+    $D = \begin{bmatrix} 
+    d_{1}\\
+    \vdots\\
+    d_{D} 
+    \end{bmatrix}
+    \qquad$&rarr;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    $V = \begin{bmatrix} 
+    v_{11} & \dots  & v_{1K} \\
+    \vdots & \ddots & \vdots \\
+    v_{D1} & \dots & v_{DK} 
+    \end{bmatrix}
+    \qquad$
+
+
