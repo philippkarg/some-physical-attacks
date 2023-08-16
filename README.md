@@ -12,7 +12,6 @@
   - [How to run the attack](#how-to-run-the-attack-1)
 - [Differential Fault Attack on AES](#differential-fault-attack-on-aes)
   - [Introduction \& Idea](#introduction--idea-2)
-  - [Attack Principle](#attack-principle-2)
   - [How to run the attack](#how-to-run-the-attack-2)
 
 ## Introduction
@@ -93,7 +92,7 @@ v_{11} & \dots  & v_{1K} \\
 v_{D1} & \dots & v_{DK} 
 \end{bmatrix}
 ```
-3. From this *V-Matrix* we compute the *H-Matrix* which contain the power model values for all of our key hypotheses & inputs. There are a number of possibilities for power models, in this attack I used the *Hamming-Weight* model, which simply counts the nubmers of `1`s in a data word. For example: `hw(0x12) = hw(0b0001 0010) = 2`. The *H-Matrix* has the same dimensions as the *V-Matrix*:
+3. From this *V-Matrix* we compute the *H-Matrix* which contain the power model values for all of our key hypotheses & inputs. There are a number of possibilities for power models, in this attack I used the *Hamming-Weight* model, which simply counts the numbers of `1`s in a data word. For example: `hw(0x12) = hw(0b0001 0010) = 2`. The *H-Matrix* has the same dimensions as the *V-Matrix*:
 
 ```math
 H = \begin{bmatrix} 
@@ -112,11 +111,9 @@ You can run all of the attacks easily from one script.
 
 ## Differential Fault Attack on AES
 ### Introduction & Idea
-*Fault Attacks* are fundamentally different from the 2 attacks above, both of which are *Side-Channel Attacks*. Side-Channel Attacks measure attributes of an attacked system, while Fault Attacks directly inject a fault. This can be done in various ways, e.g. by temporarily spiking the supply voltage of the device, or by using a focues Laser beam to change certain bytes.
+*Fault Attacks* are fundamentally different from the 2 attacks above, both of which are *Side-Channel Attacks*. Side-Channel Attacks measure attributes of an attacked system, while Fault Attacks directly inject a fault. This can be done in various ways, e.g. by temporarily spiking the supply voltage of the device, or by using a focused Laser beam to change certain bytes.
 
 In this implementation, we again use a simplified way of implementing a Fault attack. The faulty-ciphertext pairs are generated with a program & not actually on hardware. By doing this, we can exactly define where to inject the fault, which is quite complicated in real life.
-
-### Attack Principle
 
 ### How to run the attack
 You can run all of the attacks easily from one script.
